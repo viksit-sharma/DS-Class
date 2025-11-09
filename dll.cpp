@@ -7,15 +7,34 @@ struct node
 };
 node *temp, *ttemp, *first, *p;
 
-void createFirst()//1
+void createFirst() // 1
 {
-    
-        first = new node;
+
+    first = new node;
     cin >> first->data;
     first->next = NULL;
     first->prev = NULL;
 }
-void addNode()//2
+void ChexkPlaindrome()
+{
+    ttemp = temp = first;
+    while (temp->next != NULL)
+    {
+        temp = temp->next;
+    }
+    while (temp != ttemp)
+    {
+        if (temp->data != ttemp->data)
+        {
+            cout << "Is not plaindrome" << endl;
+            return;
+        }
+        temp = temp->prev;
+        ttemp = ttemp->next;
+    }
+    cout << "Is palindrome" << endl;
+}
+void addNode() // 2
 {
     temp = first;
     while (temp->next != NULL)
@@ -28,7 +47,7 @@ void addNode()//2
     ttemp->next = NULL;
     temp->next = ttemp;
 }
-void addBefore(int x, int y)//3
+void addBefore(int x, int y) // 3
 {
     temp = first;
     while (temp->data != x)
@@ -43,7 +62,7 @@ void addBefore(int x, int y)//3
     p->next = ttemp;
     temp->prev = ttemp;
 }
-void addAfter(int x, int y)//4
+void addAfter(int x, int y) // 4
 {
     temp = first;
     while (temp->data != x)
@@ -58,7 +77,7 @@ void addAfter(int x, int y)//4
     temp->next = p;
     ttemp->prev = p;
 }
-void delBefore(int x)//5
+void delBefore(int x) // 5
 {
     temp = first;
     while (temp->next->data != x)
@@ -70,7 +89,7 @@ void delBefore(int x)//5
     temp->next = temp->prev = NULL;
     delete temp;
 }
-void deleteNth(int x)//6
+void deleteNth(int x) // 6
 {
     temp = first;
     while (temp->data != x)
@@ -82,7 +101,7 @@ void deleteNth(int x)//6
     temp->next = temp->prev = NULL;
     delete temp;
 }
-void swapLastSecondlast()//7
+void swapLastSecondlast() // 7
 {
     temp = first;
     while (temp->next->next != NULL)
@@ -95,7 +114,7 @@ void swapLastSecondlast()//7
     temp->next->next = temp;
     temp->next = NULL;
 }
-void swapFirstSecond()//8
+void swapFirstSecond() // 8
 {
     temp = first;
     temp = temp->next;
@@ -105,7 +124,7 @@ void swapFirstSecond()//8
     temp->next = first;
     first = temp;
 }
-void delAfter(int x)//9
+void delAfter(int x) // 9
 {
     temp = first;
     while (temp->data != x)
@@ -119,7 +138,7 @@ void delAfter(int x)//9
     ttemp->prev = NULL;
     delete ttemp;
 }
-void addNodeBeforeFirst()//10
+void addNodeBeforeFirst() // 10
 {
     temp = first;
     ttemp = new node;
@@ -128,7 +147,7 @@ void addNodeBeforeFirst()//10
     temp->prev = ttemp;
     first = ttemp;
 }
-void swapMthAndNth(int m, int n)//11
+void swapMthAndNth(int m, int n) // 11
 {
     temp = first;
     ttemp = first;
@@ -151,7 +170,7 @@ void swapMthAndNth(int m, int n)//11
     ttemp->next = next;
     ttemp->prev = p;
 }
-void display()//12
+void display() // 12
 {
     temp = first;
     while (temp != NULL)
@@ -172,6 +191,7 @@ int main()
     addNode();
     addNode();
     addNode();
-    swapLastSecondlast();
+    // swapLastSecondlast();
+    ChexkPlaindrome();
     display();
 }
