@@ -6,23 +6,25 @@ struct DCLL
     DCLL *next, *prev;
 };
 DCLL *first, *temp, *ttemp, *p, *last, *secondLast;
-void createFirst(int x)//1
+void createFirst(int x) // 1
 {
     first = new DCLL;
     first->data = x;
     first->next = first;
     first->prev = first;
 }
-void addNode(int x)//2
+void addNode(int x) // 2
 {
-    temp = new DCLL;
-    temp->data = x;
-    temp->prev = first->prev;
-    first->prev->next = temp;
-    temp->next = first;
-    first->prev = temp;
+    ttemp = new DCLL;
+    temp = first->prev;
+    ttemp->prev = temp;
+    ttemp->data = x;
+    ttemp->next = first;
+    temp->next = ttemp;
+    first->prev = ttemp;
+    
 }
-void addNodeBeforeFirst(int x)//3
+void addNodeBeforeFirst(int x) // 3
 {
     ttemp = new DCLL;
     ttemp->data = x;
@@ -32,7 +34,7 @@ void addNodeBeforeFirst(int x)//3
     first->prev = ttemp;
     first = ttemp;
 }
-void swapLastSecondlast()//4
+void swapLastSecondlast() // 4
 {
     temp = first;
     temp = temp->prev->prev;
@@ -45,7 +47,7 @@ void swapLastSecondlast()//4
     secondLast->next = first;
     first->prev = secondLast;
 }
-void delFirst()//5
+void delFirst() // 5
 {
     first->next->prev = first->prev; // first jis(second ka previous)
     first->prev->next = first->next;
@@ -55,7 +57,7 @@ void delFirst()//5
     delete temp;
     first = p;
 }
-void delLast()//6
+void delLast() // 6
 {
     // temp = first->prev;
     // ttemp = first->prev;
@@ -70,7 +72,7 @@ void delLast()//6
     temp->prev = temp->next = NULL;
     delete temp;
 }
-void swapFirstSecond()//7
+void swapFirstSecond() // 7
 {
     temp = first;
     ttemp = first->prev;
@@ -83,7 +85,7 @@ void swapFirstSecond()//7
     first = temp;
     ttemp->next = first;
 }
-void display()//8
+void display() // 8
 {
     temp = first;
     do
