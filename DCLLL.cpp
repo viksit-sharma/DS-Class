@@ -22,7 +22,6 @@ void addNode(int x) // 2
     ttemp->next = first;
     temp->next = ttemp;
     first->prev = ttemp;
-    
 }
 void addNodeBeforeFirst(int x) // 3
 {
@@ -110,6 +109,6 @@ int main()
     // swapFirstSecond();
     // addNodeBeforeFirst(0);
     // delFirst();
-    delLast();
+    // delLast();
     display();
 }
