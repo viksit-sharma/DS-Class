@@ -50,7 +50,6 @@ void display() // 16
 int main()
 {
     init();
-    init();
     int flag = 1;
 
     while (flag == 1)
