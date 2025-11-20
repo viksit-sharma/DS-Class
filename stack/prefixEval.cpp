@@ -76,7 +76,7 @@ int prefixEval(string str)
             {
                 res = op1 ^ op2;
             }
-            // cout << res <<" ";
+            // cout << res <<" "; 
             push(res);
         }
     }
