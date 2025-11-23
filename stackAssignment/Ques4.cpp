@@ -74,15 +74,15 @@ char popS()
     delete tempS;
     return x;
 }
-void separate(string str)
+void separateIntoAlphaAndNum(string str)//SEPARATES NUMBERS AND ALPHABETS
 {
-    for (int i = 0; i < str.length(); i++)
+    for (int i = 0; i < str.length(); i++)//RUNNING LOOP FROM I = 0 TO STRING LENGTH-1 
     {
-        if (str[i] >= 97 && str[i] <= 122 || str[i] >= 65 && str[i] <= 90)
+        if (str[i] >= 97 && str[i] <= 122 || str[i] >= 65 && str[i] <= 90)//IF CHARACTER AT INDEX I IS APLHABET EITHER UPPERCASE OR LOWERCASE PUSHING IT IN FIRST STACK
         {
             pushF(str[i]);
         }
-        else
+        else//IF CHARACTER AT INDEX I IS NOT APLHABET MEANS NUMBER THEN PUSHING IT IN SECOND STACK
         {
             pushS(str[i]);
         }
@@ -91,17 +91,17 @@ void separate(string str)
 int main()
 {
     string alpNum;
-    cout << "Enter a alphanumeric string : ";
+    cout << "Enter a alphanumeric string : ";//TAKING INPUT IN ALPNUM STRING VARIABLE
     cin >> alpNum;
-    separate(alpNum);
+    separateIntoAlphaAndNum(alpNum);//CALLING SEPARATE FUNTION TO SEPERATE THE ALPHANUMERIAC STRING INTO ALPHABETS AND NUMBERS AND PASSING ALPNUM STRING IN IT
     cout << "Alphabets are : ";
-    while (topF != NULL)
+    while (topF != NULL)// PRINTS ALPHABETS THAT WERE STORED IN FIRST STACK BY POPPING THEM
     {
         cout << popF();
     }
     cout << endl
          << "Numbers are : ";
-    while (topS != NULL)
+    while (topS != NULL)// PRINTS NUMBERS THAT WERE STORED IN SECOND STACK BY POPPING THEM
     {
         cout << popS();
     }

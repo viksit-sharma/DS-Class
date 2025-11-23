@@ -2,6 +2,7 @@
 #include <iostream>
 #include <math.h>
 using namespace std;
+//FIRST STACK
 struct firstStk
 {
     char data;
@@ -38,6 +39,7 @@ char popF()
     delete tempF;
     return x;
 }
+//SECOND STACK
 struct secondStk
 {
     char data;
@@ -74,6 +76,7 @@ char popS()
     delete tempS;
     return x;
 }
+//THIRD STACK IN WHICH ELEMENTS FO FIRST AND SECOND STACKS WILL COME ALTERNATELY
 struct thirdStk
 {
     char data;
@@ -110,53 +113,44 @@ char pop()
     delete temp;
     return x;
 }
-void merge(int totalLen)
+void merge(int totalLen)//MERGE FUNCTION THAT WILL MERGE BOTH FIRST AND SECOND FUNCTION ALTERNATIVELY IN THIRD STACK
 {
-    int i = 1;
-    while (i < totalLen + 1)
+    int i = 1;//INITIALLISED I BY 1
+    while (i < totalLen + 1)//LOOP RUNS UNTIL I IS NOT EQUAL TO  TOTAL LENGTH i.e. THE SUM OF LENGTH OF FIRST AND SECOND STACK AND PUSHES FROM SECOND IF VALUE OF I IS EVEN AND PUSHES FROM FIRST IF THE VALUE OF I IS ODD
     {
-        if (i % 2 == 0)
+        if (i % 2 == 0)//IF I IS EVEN THEN THIS WILL RUN
         {
-            push(popS());
+            push(popS());//PUSHING IN THIRD STACK BY POPPING FROM SECOND STACK
         }
-        else
+        else//OTHERWISE THIS WILL RUN FOR ODD VALUE OF I
         {
-            push(popF());
+            push(popF());//PUSHING IN THIRD STACK BY POPPING FROM FIRST STACK
         }
-        i++;
-    }
-}
-void display()
-{
-    temp = top;
-    while (temp != NULL)
-    {
-        cout << temp->data << endl;
-        temp = temp->next;
+        i++;//INCREMENTING I BY 1 TO GO TO NEXT VALUE
     }
 }
 int main()
 {
-    string num1;
-    string num2;
+    string num1;//FIRST STRING
+    string num2;//SECOND STRING
     cout << "Enter string for first stack : ";
-    cin >> num1;
+    cin >> num1;//TAKING INPUT FOR FIRST STRING
     cout << endl
          << "Enter string for second stack : ";
-    cin >> num2;
-    int num1Len = num1.length();
-    int num2Len = num2.length();
-    for (int i = 0; i < num1Len; i++)
+    cin >> num2;//TAKING INPUT FOR SECOND STRING
+    int num1Len = num1.length();//FINDING LENGTH OF FIRST STRING
+    int num2Len = num2.length();//FINDING LENGTH OF SECOND STRING
+    for (int i = 0; i < num1Len; i++)//LOOP FOR PUSHING FIRST STRING CHARACTERS TO A STACK 
     {
         pushF(num1[i]);
     }
-    for (int i = 0; i < num2Len; i++)
+    for (int i = 0; i < num2Len; i++)//LOOP FOR PUSHING SECOND STRING CHARACTERS TO A STACK 
     {
         pushS(num2[i]);
     }
-    int totalLen = num1Len + num2Len;
-    merge(totalLen);
-    for (int i = 0; i < num1Len + num2Len; i++)
+    int totalLen = num1Len + num2Len;//CALCULATING TOTAL LENGTH BY TAKING SUM OF LENGTH OF FIRST AND SECOND STRING
+    merge(totalLen);//CALLING MERGE FUNCTIONAND PASSING VALUE OF TAOTAL LENGTH
+    for (int i = 0; i < totalLen; i++)//AFFTER STORING BOTH STRINGS ALTERNATELY IN THIRD STRING USING A LOOP TO POP VALUES PUSHED IN THIRD STRING AND PRINTING IT
     {
         cout << pop() << " ";
     }
