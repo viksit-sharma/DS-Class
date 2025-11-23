@@ -76,7 +76,7 @@ char popS()
 }
 void separate(string str)
 { // x4+4x3+x2+5x+1
-    for (int i = str.length() - 1; i >= 0; i--)
+    for (int i = 0; i < str.length(); i++)
     {
         if (str[i] == '+')
         {
@@ -122,15 +122,32 @@ int main()
     cout << "Enter a polynomial string : ";
     cin >> alpNum;
     separate(alpNum);
-    cout << "Powers are : ";
-    while (topF != NULL)
+    char pop[alpNum.length()];
+
+    int count = 1;
+    for (int i = 0; i < alpNum.length(); i++)
     {
-        cout << popF() << " ";
+        if (alpNum[i] == '+')
+        {
+            count++;
+        }
+    }
+    char arrF[count];
+    char arrS[count];
+    for (int i = 0; i < count; i++)
+    {
+        arrF[i] = popF();
+        arrS[i] = popS();
+    }
+    cout << "Powers are : ";
+    for (int i = count - 1; i >= 0; i--)
+    {
+        cout << arrF[i] << " ";
     }
     cout << endl
-         << "Coefficents are : ";
-    while (topS != NULL)
+         << "Coefficients are : ";
+    for (int i = count - 1; i >= 0; i--)
     {
-        cout << popS() << " ";
+        cout << arrS[i] << " ";
     }
 }
