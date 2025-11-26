@@ -148,6 +148,6 @@ int main()
          << "Coefficients are : ";
     for (int i = count - 1; i >= 0; i--)
     {
-        cout << arrS[i] << " ";
+        cout<< arrS[i] << " ";
     }
 }
