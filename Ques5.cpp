@@ -1,4 +1,4 @@
-// Convert the polynomial list in the form of two separate stack in which one istake will contain all the power fields and another stack will contain all the coefficient field
+// Convert the polynomial list in the form of two separate stack in which one istake will contain all the power fields and another stack will contain all the  coefficient field
 #include <iostream>
 #include <math.h>
 using namespace std;
