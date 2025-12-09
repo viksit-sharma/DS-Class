@@ -3,7 +3,7 @@
 #include <math.h>
 using namespace std;
 struct firstStk
-{
+{ 
     char data;
     firstStk *next;
 };
