@@ -1,4 +1,4 @@
-#include <iostream>
+ #include <iostream>
 using namespace std;
 void hanoi(int n, char from, char to, char aux)
 {
