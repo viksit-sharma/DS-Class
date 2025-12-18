@@ -161,5 +161,5 @@ int main()
 {
     initOpd();
     initOpr();
-    cout << infixToPrefix("(a+(b/c)*(d^e)-f)");
+    cout << infixToPrefix("(5+2^3*9/6-2^8+4/7)");
 }
